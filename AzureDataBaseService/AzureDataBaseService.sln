@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureDataBaseService", "AzureDataBaseService\AzureDataBaseService.csproj", "{97EDC024-108A-40E6-94EE-01E7C9BAA8EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsuranceApp", "InsuranceApp\InsuranceApp.csproj", "{30859D3C-3329-4612-ADBB-07DE8D2040DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97EDC024-108A-40E6-94EE-01E7C9BAA8EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97EDC024-108A-40E6-94EE-01E7C9BAA8EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97EDC024-108A-40E6-94EE-01E7C9BAA8EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97EDC024-108A-40E6-94EE-01E7C9BAA8EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30859D3C-3329-4612-ADBB-07DE8D2040DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30859D3C-3329-4612-ADBB-07DE8D2040DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30859D3C-3329-4612-ADBB-07DE8D2040DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30859D3C-3329-4612-ADBB-07DE8D2040DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {73C36720-6516-4808-BD8A-FDBEE5FE5B30}
+	EndGlobalSection
+EndGlobal
