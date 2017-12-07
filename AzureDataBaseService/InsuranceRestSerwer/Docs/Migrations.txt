@@ -1,0 +1,5 @@
+﻿Enable-Migrations -ContextTypeName InsuranceContex -MigrationsDirectory Migrations\Insurance
+
+add-migration -ConfigurationTypeName InsuranceRestSerwer.Migrations.Insurance.Configuration "InitialCreate"
+
+update-database -ConfigurationTypeName InsuranceRestSerwer.Migrations.Insurance.Configuration
