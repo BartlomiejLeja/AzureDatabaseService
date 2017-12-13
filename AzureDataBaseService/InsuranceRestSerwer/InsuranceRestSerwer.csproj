@@ -143,7 +143,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\Clients1Controller.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Data\InsuranceContex.cs" />
@@ -154,14 +153,26 @@
     <Compile Include="Migrations\Insurance\201712071720594_InitialCreate.Designer.cs">
       <DependentUpon>201712071720594_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Insurance\201712121915202_AlmostEveryThing.cs" />
+    <Compile Include="Migrations\Insurance\201712121915202_AlmostEveryThing.Designer.cs">
+      <DependentUpon>201712121915202_AlmostEveryThing.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Insurance\Configuration.cs" />
+    <Compile Include="Models\CarInsurances\CarInsurance.cs" />
+    <Compile Include="Models\CarInsurances\CarInsuranceApplication.cs" />
+    <Compile Include="Models\CarInsurances\Offenders.cs" />
+    <Compile Include="Models\CarInsurances\Payment.cs" />
+    <Compile Include="Models\CarInsurances\TypeOfCarInsurance.cs" />
+    <Compile Include="Models\CarInsurances\Vehicle.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\ClientData.cs" />
     <Compile Include="Models\Discount.cs" />
     <Compile Include="Models\HealthInsurance.cs" />
     <Compile Include="Models\Insurances.cs" />
     <Compile Include="Models\RealEstateInsurance.cs" />
-    <Compile Include="Models\TravelInsurance.cs" />
+    <Compile Include="Models\TravelInsurances\AdditionalOptions.cs" />
+    <Compile Include="Models\TravelInsurances\Region.cs" />
+    <Compile Include="Models\TravelInsurances\TravelInsurance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlHelper.cs" />
   </ItemGroup>
@@ -199,6 +210,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\Insurance\201712071720594_InitialCreate.resx">
       <DependentUpon>201712071720594_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Insurance\201712121915202_AlmostEveryThing.resx">
+      <DependentUpon>201712121915202_AlmostEveryThing.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

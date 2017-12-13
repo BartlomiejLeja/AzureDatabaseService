@@ -1,13 +1,14 @@
-﻿using InsuranceRestSerwer.Models.CarInsurances;
+﻿//using InsuranceRestSerwer.Models.CarInsurances;
+using InsuranceApp.Models.CarInsurances;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+//using System.ComponentModel.DataAnnotations.Schema;
 
 
-namespace InsuranceRestSerwer.Models
+namespace InsuranceApp.Models
 {
     public class Insurances
     {
-        [ForeignKey("Client")]
+     //   [ForeignKey("Client")]
         public int InsurancesId { get; set; }
         public Client Client { get; set; }
         public List<CarInsurance> CarInsurance { get; set; }

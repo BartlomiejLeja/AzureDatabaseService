@@ -2,127 +2,104 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Web;
-using System.Web.Mvc;
+using System.Net.Http;
+using System.Web.Http;
+using System.Web.Http.Description;
 using InsuranceRestSerwer.Data;
 using InsuranceRestSerwer.Models;
 
 namespace InsuranceRestSerwer.Controllers
 {
-    public class ClientsController : Controller
+    public class ClientsController : ApiController
     {
         private InsuranceContex db = new InsuranceContex();
 
-        // GET: Clients
-        public ActionResult Index()
+        // GET: api/Clients
+        public IQueryable<Client> GetClients()
         {
-            var clients = db.Clients.Include(c => c.ClientData).Include(c => c.Insurances);
-            return View(clients.ToList());
+            return db.Clients;
         }
 
-        // GET: Clients/Details/5
-        public ActionResult Details(int? id)
+        // GET: api/Clients/5
+        [ResponseType(typeof(Client))]
+        public IHttpActionResult GetClient(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Client client = db.Clients.Find(id);
             if (client == null)
             {
-                return HttpNotFound();
+                return NotFound();
             }
-            return View(client);
+
+            return Ok(client);
         }
 
-        // GET: Clients/Create
-        public ActionResult Create()
+        // PUT: api/Clients/5
+        [ResponseType(typeof(void))]
+        public IHttpActionResult PutClient(int id, Client client)
         {
-            ViewBag.ClientId = new SelectList(db.ClientDatas, "ClientDataId", "ClientDataId");
-            ViewBag.ClientId = new SelectList(db.Insurances, "InsurancesId", "InsurancesId");
-            return View();
-        }
-
-        // POST: Clients/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ClientId,FirstName,SecondName")] Client client)
-        {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                db.Clients.Add(client);
+                return BadRequest(ModelState);
+            }
+
+            if (id != client.ClientId)
+            {
+                return BadRequest();
+            }
+
+            db.Entry(client).State = EntityState.Modified;
+
+            try
+            {
                 db.SaveChanges();
-                return RedirectToAction("Index");
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ClientExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
             }
 
-            ViewBag.ClientId = new SelectList(db.ClientDatas, "ClientDataId", "ClientDataId", client.ClientId);
-            ViewBag.ClientId = new SelectList(db.Insurances, "InsurancesId", "InsurancesId", client.ClientId);
-            return View(client);
+            return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // GET: Clients/Edit/5
-        public ActionResult Edit(int? id)
+        // POST: api/Clients
+        [ResponseType(typeof(Client))]
+        public IHttpActionResult PostClient(Client client)
         {
-            if (id == null)
+            if (!ModelState.IsValid)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return BadRequest(ModelState);
             }
+
+            db.Clients.Add(client);
+            db.SaveChanges();
+
+            return CreatedAtRoute("DefaultApi", new { id = client.ClientId }, client);
+        }
+
+        // DELETE: api/Clients/5
+        [ResponseType(typeof(Client))]
+        public IHttpActionResult DeleteClient(int id)
+        {
             Client client = db.Clients.Find(id);
             if (client == null)
             {
-                return HttpNotFound();
+                return NotFound();
             }
-            ViewBag.ClientId = new SelectList(db.ClientDatas, "ClientDataId", "ClientDataId", client.ClientId);
-            ViewBag.ClientId = new SelectList(db.Insurances, "InsurancesId", "InsurancesId", client.ClientId);
-            return View(client);
-        }
 
-        // POST: Clients/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ClientId,FirstName,SecondName")] Client client)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(client).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.ClientId = new SelectList(db.ClientDatas, "ClientDataId", "ClientDataId", client.ClientId);
-            ViewBag.ClientId = new SelectList(db.Insurances, "InsurancesId", "InsurancesId", client.ClientId);
-            return View(client);
-        }
-
-        // GET: Clients/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Client client = db.Clients.Find(id);
-            if (client == null)
-            {
-                return HttpNotFound();
-            }
-            return View(client);
-        }
-
-        // POST: Clients/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Client client = db.Clients.Find(id);
             db.Clients.Remove(client);
             db.SaveChanges();
-            return RedirectToAction("Index");
+
+            return Ok(client);
         }
 
         protected override void Dispose(bool disposing)
@@ -132,6 +109,11 @@ namespace InsuranceRestSerwer.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private bool ClientExists(int id)
+        {
+            return db.Clients.Count(e => e.ClientId == id) > 0;
         }
     }
 }

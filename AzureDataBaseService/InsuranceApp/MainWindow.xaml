@@ -5,11 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InsuranceApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525"
-         xmlns:prism="http://prismlibrary.com/"
-         prism:ViewModelLocator.AutoWireViewModel="True" >
-    
+        Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Label x:Name="RestData" Content="Label" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Width="498" Height="133"/>
+
     </Grid>
 </Window>

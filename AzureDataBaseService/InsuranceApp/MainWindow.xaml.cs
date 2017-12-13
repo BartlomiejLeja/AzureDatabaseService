@@ -23,6 +23,8 @@ namespace InsuranceApp
         public MainWindow()
         {
             InitializeComponent();
+            var restSharpHandler = new RestSharpHandler();
+            RestData.Content= restSharpHandler.GetClientdata();
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace InsuranceRestSerwer.Models
+namespace InsuranceApp.Models
 {
     public class RealEstateInsurance
     {
