@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InsuranceApp.Models;
 
 namespace InsuranceApp
 {
@@ -25,6 +26,34 @@ namespace InsuranceApp
             InitializeComponent();
             var restSharpHandler = new RestSharpHandler();
             RestData.Content= restSharpHandler.GetClientdata();
+
+            testList();
+
         }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void testList()
+        {
+            var client = new Client();
+            client.FirstName = "Tomek";
+            client.SecondName = "atomek";
+            string Pesel = "123456789";
+
+            List<Client> items = new List<Client>();
+            items.Add(new Client() { FirstName= "John Doe", SecondName = "Kowalski"});
+            items.Add(client);
+          
+            clientsList.ItemsSource = items;
+
+
+
+
+        }
+
+
     }
 }

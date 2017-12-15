@@ -7,7 +7,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Label x:Name="RestData" Content="Label" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Width="498" Height="133"/>
+        <Label x:Name="RestData" Content="Label" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
+        <ListView  x:Name="clientsList" HorizontalAlignment="Left" Height="178" Margin="139,31,0,0" VerticalAlignment="Top" Width="307" SelectionChanged="ListView_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                 
+                    <GridViewColumn Header="Imię" Width="100" DisplayMemberBinding="{Binding FirstName}" />
+                    <GridViewColumn Header="Nazwisko" Width="100" DisplayMemberBinding="{Binding SecondName}" />
+                    <!--<GridViewColumn Header="Pesel" Width="100" DisplayMemberBinding="{Binding Pesel}"/>-->
+
+                </GridView>
+            </ListView.View>
+           
+        </ListView>
 
     </Grid>
 </Window>
