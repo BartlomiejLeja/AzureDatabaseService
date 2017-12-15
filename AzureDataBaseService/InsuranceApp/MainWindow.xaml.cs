@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InsuranceApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,8 +24,12 @@ namespace InsuranceApp
         public MainWindow()
         {
             InitializeComponent();
-            var restSharpHandler = new RestSharpHandler();
-            RestData.Content= restSharpHandler.GetClientdata();
+            //var restSharpHandler = new RestSharpHandler();
+            //RestData.Content= restSharpHandler.GetClientdata();
+            var client = new Client();
+            var clientData = new ClientData();
+            client.FirstName = "BArtek";
+            client.ClientData = clientData;
         }
     }
 }

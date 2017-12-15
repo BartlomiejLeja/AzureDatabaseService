@@ -7,13 +7,13 @@ namespace InsuranceRestSerwer.Migrations.Insurance
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AlmostEveryThing : IMigrationMetadata
+    public sealed partial class InitialCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AlmostEveryThing));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201712121915202_AlmostEveryThing"; }
+            get { return "201712132050541_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source
