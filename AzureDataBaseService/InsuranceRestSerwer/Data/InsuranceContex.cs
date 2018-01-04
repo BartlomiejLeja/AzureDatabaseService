@@ -11,7 +11,7 @@ namespace InsuranceRestSerwer.Data
 {
     public class InsuranceContex : DbContext
     {
-       public InsuranceContex(): base("DefaultConnection")
+       public InsuranceContex(): base("Data Source=insuranceappdatabaseserver.database.windows.net;Initial Catalog=insuranceappdatabase;Persist Security Info=True;User ID=BartlomiejLeja;Password=Insurance!")
         {}
 
         public DbSet<Insurances> Insurances { get; set; }

@@ -13,7 +13,7 @@ namespace InsuranceRestSerwer.Migrations.Insurance
         
         string IMigrationMetadata.Id
         {
-            get { return "201712132050541_InitialCreate"; }
+            get { return "201801032009119_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source
