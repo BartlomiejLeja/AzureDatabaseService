@@ -1,6 +1,4 @@
-﻿using InsuranceApp.Models;
-using InsuranceApp.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,24 +12,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using InsuranceApp.Models;
-using System.ComponentModel;
 
-namespace InsuranceApp
+namespace InsuranceApp.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for AddingClientView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AddingClientView : UserControl
     {
-        public MainWindow()
+        public AddingClientView()
         {
             InitializeComponent();
         }
 
-        private void AddNewClientTab_Clicked(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            DataContext = new AddingClientViewModel();
+
         }
     }
 }

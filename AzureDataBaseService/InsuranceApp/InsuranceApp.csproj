@@ -77,6 +77,10 @@
     <Compile Include="Models\TravelInsurances\Region.cs" />
     <Compile Include="Models\TravelInsurances\TravelInsurance.cs" />
     <Compile Include="RestSharpHandler.cs" />
+    <Compile Include="ViewModels\AddingClientViewModel.cs" />
+    <Compile Include="View\AddingClientView.xaml.cs">
+      <DependentUpon>AddingClientView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -89,6 +93,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\AddingClientView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -117,5 +125,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

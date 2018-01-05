@@ -63,12 +63,6 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\InsuranceRestSerwer\InsuranceRestSerwer.csproj">
-      <Project>{028802A6-A374-4A65-8B2C-596E1BC48EB9}</Project>
-      <Name>InsuranceRestSerwer</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
