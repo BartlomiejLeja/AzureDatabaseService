@@ -13,44 +13,44 @@ using InsuranceRestSerwer.Models;
 
 namespace InsuranceRestSerwer.Controllers
 {
-    public class ClientsController : ApiController
+    public class TravelInsurancesController : ApiController
     {
         private InsuranceContex db = new InsuranceContex();
 
-        // GET: api/Clients
-        public IQueryable<Client> GetClients()
+        // GET: api/TravelInsurances
+        public IQueryable<TravelInsurance> GetTravelInsurance()
         {
-            return db.Clients;
+            return db.TravelInsurance;
         }
 
-        // GET: api/Clients/5
-        [ResponseType(typeof(Client))]
-        public IHttpActionResult GetClient(int id)
+        // GET: api/TravelInsurances/5
+        [ResponseType(typeof(TravelInsurance))]
+        public IHttpActionResult GetTravelInsurance(int id)
         {
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            TravelInsurance travelInsurance = db.TravelInsurance.Find(id);
+            if (travelInsurance == null)
             {
                 return NotFound();
             }
 
-            return Ok(client);
+            return Ok(travelInsurance);
         }
 
-        // PUT: api/Clients/5
+        // PUT: api/TravelInsurances/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutClient(int id, Client client)
+        public IHttpActionResult PutTravelInsurance(int id, TravelInsurance travelInsurance)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != client.ClientId)
+            if (id != travelInsurance.TravelInsuranceId)
             {
                 return BadRequest();
             }
 
-            db.Entry(client).State = EntityState.Modified;
+            db.Entry(travelInsurance).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +58,7 @@ namespace InsuranceRestSerwer.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ClientExists(id))
+                if (!TravelInsuranceExists(id))
                 {
                     return NotFound();
                 }
@@ -71,35 +71,35 @@ namespace InsuranceRestSerwer.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Clients
-        [ResponseType(typeof(Client))]
-        public IHttpActionResult PostClient(Client client)
+        // POST: api/TravelInsurances
+        [ResponseType(typeof(TravelInsurance))]
+        public IHttpActionResult PostTravelInsurance(TravelInsurance travelInsurance)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Clients.Add(client);
+            db.TravelInsurance.Add(travelInsurance);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = client.ClientId }, client);
+            return CreatedAtRoute("DefaultApi", new { id = travelInsurance.TravelInsuranceId }, travelInsurance);
         }
 
-        // DELETE: api/Clients/5
-        [ResponseType(typeof(Client))]
-        public IHttpActionResult DeleteClient(int id)
+        // DELETE: api/TravelInsurances/5
+        [ResponseType(typeof(TravelInsurance))]
+        public IHttpActionResult DeleteTravelInsurance(int id)
         {
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            TravelInsurance travelInsurance = db.TravelInsurance.Find(id);
+            if (travelInsurance == null)
             {
                 return NotFound();
             }
 
-            db.Clients.Remove(client);
+            db.TravelInsurance.Remove(travelInsurance);
             db.SaveChanges();
 
-            return Ok(client);
+            return Ok(travelInsurance);
         }
 
         protected override void Dispose(bool disposing)
@@ -111,9 +111,9 @@ namespace InsuranceRestSerwer.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ClientExists(int id)
+        private bool TravelInsuranceExists(int id)
         {
-            return db.Clients.Count(e => e.ClientId == id) > 0;
+            return db.TravelInsurance.Count(e => e.TravelInsuranceId == id) > 0;
         }
     }
 }

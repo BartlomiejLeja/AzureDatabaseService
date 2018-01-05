@@ -9,48 +9,48 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using InsuranceRestSerwer.Data;
-using InsuranceRestSerwer.Models;
+using InsuranceRestSerwer.Models.CarInsurances;
 
 namespace InsuranceRestSerwer.Controllers
 {
-    public class ClientsController : ApiController
+    public class CarInsurancesController : ApiController
     {
         private InsuranceContex db = new InsuranceContex();
 
-        // GET: api/Clients
-        public IQueryable<Client> GetClients()
+        // GET: api/CarInsurances
+        public IQueryable<CarInsurance> GetCarInsurance()
         {
-            return db.Clients;
+            return db.CarInsurance;
         }
 
-        // GET: api/Clients/5
-        [ResponseType(typeof(Client))]
-        public IHttpActionResult GetClient(int id)
+        // GET: api/CarInsurances/5
+        [ResponseType(typeof(CarInsurance))]
+        public IHttpActionResult GetCarInsurance(int id)
         {
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            CarInsurance carInsurance = db.CarInsurance.Find(id);
+            if (carInsurance == null)
             {
                 return NotFound();
             }
 
-            return Ok(client);
+            return Ok(carInsurance);
         }
 
-        // PUT: api/Clients/5
+        // PUT: api/CarInsurances/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutClient(int id, Client client)
+        public IHttpActionResult PutCarInsurance(int id, CarInsurance carInsurance)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != client.ClientId)
+            if (id != carInsurance.CarInsuranceId)
             {
                 return BadRequest();
             }
 
-            db.Entry(client).State = EntityState.Modified;
+            db.Entry(carInsurance).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +58,7 @@ namespace InsuranceRestSerwer.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ClientExists(id))
+                if (!CarInsuranceExists(id))
                 {
                     return NotFound();
                 }
@@ -71,35 +71,35 @@ namespace InsuranceRestSerwer.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Clients
-        [ResponseType(typeof(Client))]
-        public IHttpActionResult PostClient(Client client)
+        // POST: api/CarInsurances
+        [ResponseType(typeof(CarInsurance))]
+        public IHttpActionResult PostCarInsurance(CarInsurance carInsurance)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Clients.Add(client);
+            db.CarInsurance.Add(carInsurance);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = client.ClientId }, client);
+            return CreatedAtRoute("DefaultApi", new { id = carInsurance.CarInsuranceId }, carInsurance);
         }
 
-        // DELETE: api/Clients/5
-        [ResponseType(typeof(Client))]
-        public IHttpActionResult DeleteClient(int id)
+        // DELETE: api/CarInsurances/5
+        [ResponseType(typeof(CarInsurance))]
+        public IHttpActionResult DeleteCarInsurance(int id)
         {
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            CarInsurance carInsurance = db.CarInsurance.Find(id);
+            if (carInsurance == null)
             {
                 return NotFound();
             }
 
-            db.Clients.Remove(client);
+            db.CarInsurance.Remove(carInsurance);
             db.SaveChanges();
 
-            return Ok(client);
+            return Ok(carInsurance);
         }
 
         protected override void Dispose(bool disposing)
@@ -111,9 +111,9 @@ namespace InsuranceRestSerwer.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ClientExists(int id)
+        private bool CarInsuranceExists(int id)
         {
-            return db.Clients.Count(e => e.ClientId == id) > 0;
+            return db.CarInsurance.Count(e => e.CarInsuranceId == id) > 0;
         }
     }
 }

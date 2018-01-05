@@ -9,48 +9,48 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using InsuranceRestSerwer.Data;
-using InsuranceRestSerwer.Models;
+using InsuranceRestSerwer.Models.TravelInsurances;
 
 namespace InsuranceRestSerwer.Controllers
 {
-    public class ClientsController : ApiController
+    public class RegionsController : ApiController
     {
         private InsuranceContex db = new InsuranceContex();
 
-        // GET: api/Clients
-        public IQueryable<Client> GetClients()
+        // GET: api/Regions
+        public IQueryable<Region> GetRegion()
         {
-            return db.Clients;
+            return db.Region;
         }
 
-        // GET: api/Clients/5
-        [ResponseType(typeof(Client))]
-        public IHttpActionResult GetClient(int id)
+        // GET: api/Regions/5
+        [ResponseType(typeof(Region))]
+        public IHttpActionResult GetRegion(int id)
         {
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            Region region = db.Region.Find(id);
+            if (region == null)
             {
                 return NotFound();
             }
 
-            return Ok(client);
+            return Ok(region);
         }
 
-        // PUT: api/Clients/5
+        // PUT: api/Regions/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutClient(int id, Client client)
+        public IHttpActionResult PutRegion(int id, Region region)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != client.ClientId)
+            if (id != region.RegionId)
             {
                 return BadRequest();
             }
 
-            db.Entry(client).State = EntityState.Modified;
+            db.Entry(region).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +58,7 @@ namespace InsuranceRestSerwer.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ClientExists(id))
+                if (!RegionExists(id))
                 {
                     return NotFound();
                 }
@@ -71,35 +71,35 @@ namespace InsuranceRestSerwer.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Clients
-        [ResponseType(typeof(Client))]
-        public IHttpActionResult PostClient(Client client)
+        // POST: api/Regions
+        [ResponseType(typeof(Region))]
+        public IHttpActionResult PostRegion(Region region)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Clients.Add(client);
+            db.Region.Add(region);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = client.ClientId }, client);
+            return CreatedAtRoute("DefaultApi", new { id = region.RegionId }, region);
         }
 
-        // DELETE: api/Clients/5
-        [ResponseType(typeof(Client))]
-        public IHttpActionResult DeleteClient(int id)
+        // DELETE: api/Regions/5
+        [ResponseType(typeof(Region))]
+        public IHttpActionResult DeleteRegion(int id)
         {
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            Region region = db.Region.Find(id);
+            if (region == null)
             {
                 return NotFound();
             }
 
-            db.Clients.Remove(client);
+            db.Region.Remove(region);
             db.SaveChanges();
 
-            return Ok(client);
+            return Ok(region);
         }
 
         protected override void Dispose(bool disposing)
@@ -111,9 +111,9 @@ namespace InsuranceRestSerwer.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ClientExists(int id)
+        private bool RegionExists(int id)
         {
-            return db.Clients.Count(e => e.ClientId == id) > 0;
+            return db.Region.Count(e => e.RegionId == id) > 0;
         }
     }
 }
