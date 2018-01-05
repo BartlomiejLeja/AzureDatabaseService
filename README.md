@@ -7,8 +7,13 @@ WCF service that will manage CRUD operations
 
 var restClient = new RestClient("https://insurancerestserwer20180104090036.azurewebsites.net"); //serwer url always the same
 IRestResponse response = restClient.Execute(new RestRequest("/api/Clients/1", Method.GET)); (get client with Id 1)
+
+2)All ORM mapped classe are in https://github.com/BartlomiejLeja/AzureDatabaseService/tree/master/AzureDataBaseService/InsuranceRestSerwer/Models
+Use it to create your own model and send it using rest server.
+
+3)All rest methods are in https://github.com/BartlomiejLeja/AzureDatabaseService/tree/master/AzureDataBaseService/InsuranceRestSerwer/Controllers
  
-2)Simple deserializable into client class
+4)Simple deserializable into client class
  
 var client = JsonConvert.DeserializeObject<Client>(response.Content);
   
