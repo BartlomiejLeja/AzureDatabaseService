@@ -36,6 +36,21 @@ namespace InsuranceRestSerwer.Controllers
             return Ok(client);
         }
 
+
+        // GET: api/AllClients
+        [ResponseType(typeof(Client))]
+        public IHttpActionResult GetAllClients()
+        {
+            var clients = db.Clients.ToList<Client>();
+
+            if (clients == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(clients);
+        }
+
         // PUT: api/Clients/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutClient(int id, Client client)

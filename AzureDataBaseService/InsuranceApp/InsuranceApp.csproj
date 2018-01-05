@@ -78,8 +78,12 @@
     <Compile Include="Models\TravelInsurances\TravelInsurance.cs" />
     <Compile Include="RestSharpHandler.cs" />
     <Compile Include="ViewModels\AddingClientViewModel.cs" />
+    <Compile Include="ViewModels\DisplayClientViewModel.cs" />
     <Compile Include="View\AddingClientView.xaml.cs">
       <DependentUpon>AddingClientView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DisplayClientDataView.xaml.cs">
+      <DependentUpon>DisplayClientDataView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -94,6 +98,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\AddingClientView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DisplayClientDataView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

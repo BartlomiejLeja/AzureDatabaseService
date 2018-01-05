@@ -14,7 +14,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using InsuranceApp.Models;
 using System.ComponentModel;
 
 namespace InsuranceApp
@@ -32,6 +31,11 @@ namespace InsuranceApp
         private void AddNewClientTab_Clicked(object sender, RoutedEventArgs e)
         {
             DataContext = new AddingClientViewModel();
+        }
+
+        private void DisplayClientTab_Clicked(object sender, RoutedEventArgs e)
+        {
+            DataContext = new DisplayClientViewModel();
         }
     }
 }
