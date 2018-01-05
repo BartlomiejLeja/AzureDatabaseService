@@ -19,5 +19,34 @@ namespace InsuranceApp.Models
         public DateTime FinishDate { get; set; }
         public int Insurance { get; set; }
         public Insurances Insurances { get; set; }
+
+
+        public RealEstateInsurance()
+        {
+            MetricArea = 50;
+            NumberOfFloors = 2;
+            NumberOfGarages = 1;
+            ConstructionDate = DateTime.Now;
+            HasBasement = true;
+            Adress = "Wolska 25";
+            PropertyType = "Dom jednorodzinny";
+            StartDate = DateTime.Now;
+            FinishDate = DateTime.Now;
+
+        }
+
+        public override string ToString()
+        {
+
+
+            return "Metryka: " + MetricArea +
+                "\nIlość pięter: " + NumberOfFloors +
+                "\nIlość garaży: " + NumberOfGarages +
+                "\nMa piwnicę? " + HasBasement +
+                "\nAdres: " + Adress +
+                "\nPoczątek ubezpieczenia: " + StartDate +
+                "\nKoniec ubezpieczenia: " + FinishDate + "\n";
+                
+        }
     }
 }
