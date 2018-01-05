@@ -94,6 +94,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdditionalOptionsController.cs" />
+    <Compile Include="Controllers\CarInsuranceApplicationsController.cs" />
     <Compile Include="Controllers\CarInsurancesController.cs" />
     <Compile Include="Controllers\ClientDatasController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
