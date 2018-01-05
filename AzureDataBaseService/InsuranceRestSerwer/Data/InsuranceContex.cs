@@ -29,7 +29,5 @@ namespace InsuranceRestSerwer.Data
         public DbSet<Region> Region { get; set; }
         public DbSet<Discount> Discount { get; set; }
 
-
-
     }
 }

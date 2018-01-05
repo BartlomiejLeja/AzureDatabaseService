@@ -4,10 +4,41 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InsuranceApp"
+        xmlns:viewmodels="clr-namespace:InsuranceApp.ViewModels"
+        xmlns:view="clr-namespace:InsuranceApp.View"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <Label x:Name="RestData" Content="Label" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Width="498" Height="133"/>
 
+    <Window.Resources>
+        <DataTemplate x:Name="AddClientTemplate" DataType="{x:Type viewmodels:AddingClientViewModel}">
+            <view:AddingClientView DataContext="{Binding}"/>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Background="Beige" Grid.Row="0" Grid.Column="0" Grid.RowSpan="5">
+            <StackPanel>
+                <Button Content="Add client" Click="AddNewClientTab_Clicked"/>
+                <Button Content="Delete client"/>
+                <Button Content="Modify client"/>
+            </StackPanel>
+        </DockPanel>
+
+        
+        <ContentControl Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="5" Content="{Binding}"/>
     </Grid>
 </Window>

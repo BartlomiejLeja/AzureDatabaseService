@@ -43,27 +43,32 @@ namespace InsuranceRestSerwer.Data
             return testClient;
         }
 
-        public static RealEstateInsurance getRealEstateInsurance(InsuranceRestSerwer.Data.InsuranceContex context)
+        public static List<RealEstateInsurance> getRealEstateInsurance()
         {
-            //List<RealEstateInsurance> realEstateInsurancesList = new List<RealEstateInsurance>
-            //{
-            var realEstateInsurance = new RealEstateInsurance();
-            realEstateInsurance.NumberOfFloors = 5;
-            realEstateInsurance.HasBasement = true;
-            realEstateInsurance.Adress = "TestAdress1";
-            realEstateInsurance.Insurance = 4;
-            realEstateInsurance.ConstructionDate= new DateTime(2017, 1, 18);
-            realEstateInsurance.StartDate = new DateTime(2017, 1, 18);
-            realEstateInsurance.FinishDate = new DateTime(2017, 1, 18);
-            realEstateInsurance.Insurances = context.Insurances.Find(4);
-            //    new RealEstateInsurance
-            //    {
-            //        NumberOfFloors=5,
-            //        HasBasement=false,
-            //        Adress="TestAdress2"
-            //    }
-            //};
-            return realEstateInsurance;
+            List<RealEstateInsurance> realEstateInsurancesList = new List<RealEstateInsurance>
+            {
+                 new RealEstateInsurance
+                {
+            NumberOfFloors = 5,
+            HasBasement = true,
+            Adress = "TestAdress1",
+           Insurance = 4,
+            ConstructionDate = new DateTime(2017, 1, 18),
+            StartDate = new DateTime(2017, 1, 18),
+            FinishDate = new DateTime(2017, 1, 18),
+               },
+           
+                new RealEstateInsurance
+               {
+                   NumberOfFloors=5,
+                    HasBasement=false,
+                   Adress="TestAdress2",
+                   ConstructionDate = new DateTime(2016, 1, 18),
+            StartDate = new DateTime(2016, 1, 18),
+            FinishDate = new DateTime(2016, 1, 18),
+               }
+            };
+            return realEstateInsurancesList;
         }
 
         public static ClientData getClientData()
@@ -71,7 +76,6 @@ namespace InsuranceRestSerwer.Data
             var dataClient = new ClientData();
             dataClient.BirthDate = new DateTime(2017, 1, 18);
             dataClient.PeselNumber = 920819927;
-           // dataClient.ClientDataId = 4;
             return dataClient;
         }
 
@@ -88,7 +92,8 @@ namespace InsuranceRestSerwer.Data
         public static Insurances getInsurances()
         {
             var isurances = new Insurances();
-           // isurances.InsurancesId = 8;
+            isurances.RealEstateInsurance = getRealEstateInsurance();
+           
             return isurances;
         }
 
