@@ -5,7 +5,7 @@ WCF service that will manage CRUD operations
 
 1)Simple rest GET in .NET using restSharp
 
-var restClient = new RestClient("http://insurancerestserwer20171130090720.azurewebsites.net"); //serwer url always the same
+var restClient = new RestClient("https://insurancerestserwer20180104090036.azurewebsites.net"); //serwer url always the same
 IRestResponse response = restClient.Execute(new RestRequest("/api/Clients/1", Method.GET)); (get client with Id 1)
  
 2)Simple deserializable into client class
