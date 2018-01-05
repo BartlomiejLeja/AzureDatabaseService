@@ -14,6 +14,6 @@ namespace InsuranceRestSerwer.Models
         public string SecondName { get; set; }
         public virtual ClientData ClientData { get; set; }
         public Discount Discount { get; set; }
-        public Insurances Insurances { get; set; }
+        public virtual Insurances Insurances { get; set; }
     }
 }

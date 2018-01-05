@@ -1,4 +1,6 @@
-﻿using System;
+﻿using InsuranceApp.Models;
+using InsuranceApp.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,11 +26,11 @@ namespace InsuranceApp
         public MainWindow()
         {
             InitializeComponent();
-            var restSharpHandler = new RestSharpHandler();
-            RestData.Content= restSharpHandler.GetClientdata();
+        }
 
-            testList();
-
+        private void AddNewClientTab_Clicked(object sender, RoutedEventArgs e)
+        {
+            DataContext = new AddingClientViewModel();
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
