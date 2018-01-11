@@ -13,10 +13,6 @@
         <DataTemplate x:Name="AddClientTemplate" DataType="{x:Type viewmodels:AddingClientViewModel}">
             <view:AddingClientView DataContext="{Binding}"/>
         </DataTemplate>
-        <DataTemplate x:Name="DisplayClientTemplate" DataType="{x:Type viewmodels:DisplayClientViewModel}">
-            <view:DisplayClientDataView DataContext="{Binding}"/>
-        </DataTemplate>
-
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -36,7 +32,6 @@
 
         <DockPanel Background="Beige" Grid.Row="0" Grid.Column="0" Grid.RowSpan="5">
             <StackPanel>
-                <Button Content="Display client" Click="DisplayClientTab_Clicked"/>
                 <Button Content="Add client" Click="AddNewClientTab_Clicked"/>
                 <Button Content="Delete client"/>
                 <Button Content="Modify client"/>
