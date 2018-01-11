@@ -43,7 +43,7 @@ namespace InsuranceRestSerwer.Data
             return testClient;
         }
 
-        public static List<RealEstateInsurance> getRealEstateInsurance()
+        public static List<RealEstateInsurance> getRealEstateInsurance(Insurances insurance)
         {
             List<RealEstateInsurance> realEstateInsurancesList = new List<RealEstateInsurance>
             {
@@ -52,10 +52,11 @@ namespace InsuranceRestSerwer.Data
             NumberOfFloors = 5,
             HasBasement = true,
             Adress = "TestAdress1",
-           Insurance = 4,
+           InsurancesId = 4,
             ConstructionDate = new DateTime(2017, 1, 18),
             StartDate = new DateTime(2017, 1, 18),
             FinishDate = new DateTime(2017, 1, 18),
+            Insurances=insurance,
                },
            
                 new RealEstateInsurance
@@ -75,7 +76,7 @@ namespace InsuranceRestSerwer.Data
         {
             var dataClient = new ClientData();
             dataClient.BirthDate = new DateTime(2017, 1, 18);
-            dataClient.PeselNumber = 920819927;
+           dataClient.PeselNumber = 920819927;
             return dataClient;
         }
 
@@ -84,15 +85,15 @@ namespace InsuranceRestSerwer.Data
             var client = new Client();
             client.FirstName = "TestName2";
             client.SecondName = "TestSecondName2";
-            client.ClientData = getClientData();
-            client.Insurances = getInsurances();
+          //  client.ClientData = getClientData();
+           client.Insurances = getInsurances();
             return client;
         }
 
         public static Insurances getInsurances()
         {
             var isurances = new Insurances();
-            isurances.RealEstateInsurance = getRealEstateInsurance();
+            isurances.RealEstateInsurance = getRealEstateInsurance(isurances);
            
             return isurances;
         }

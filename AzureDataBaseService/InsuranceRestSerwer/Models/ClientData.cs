@@ -7,10 +7,10 @@ namespace InsuranceRestSerwer.Models
     {
         [ForeignKey("Client")]
         public int ClientDataId { get; set; }
-        public virtual Client Client { get; set; }
         public int PeselNumber { get; set; }
         public DateTime BirthDate { get; set; }
         public string Adress { get; set; }
         public int CarUsingPeriod { get; set; }
+        public virtual Client Client { get; set; }
     }
 }

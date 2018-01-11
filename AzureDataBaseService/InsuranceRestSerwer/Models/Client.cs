@@ -13,7 +13,7 @@ namespace InsuranceRestSerwer.Models
         public string FirstName { get; set; }
         public string SecondName { get; set; }
         public virtual ClientData ClientData { get; set; }
-        public Discount Discount { get; set; }
+        public virtual Discount Discount { get; set; }
         public virtual Insurances Insurances { get; set; }
     }
 }

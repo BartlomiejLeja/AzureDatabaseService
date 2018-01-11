@@ -12,6 +12,7 @@ namespace InsuranceRestSerwer
             // Web API configuration and services
 
             // Web API routes
+
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
@@ -21,6 +22,8 @@ namespace InsuranceRestSerwer
             );
             config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling
                    = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+
+
         }
     }
 }

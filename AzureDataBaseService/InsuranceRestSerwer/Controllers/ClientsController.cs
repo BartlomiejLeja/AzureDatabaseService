@@ -13,17 +13,21 @@ using InsuranceRestSerwer.Models;
 
 namespace InsuranceRestSerwer.Controllers
 {
+  
     public class ClientsController : ApiController
     {
         private InsuranceContex db = new InsuranceContex();
-
+           
         // GET: api/Clients
         public IQueryable<Client> GetClients()
         {
+            var test = db.Clients;
             return db.Clients;
         }
 
-        // GET: api/Clients/5
+      
+        [Route("api/Clients/{id:int}")]
+        [HttpGet]
         [ResponseType(typeof(Client))]
         public IHttpActionResult GetClient(int id)
         {
@@ -35,7 +39,7 @@ namespace InsuranceRestSerwer.Controllers
 
             return Ok(client);
         }
-
+        
         // PUT: api/Clients/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutClient(int id, Client client)
@@ -101,6 +105,13 @@ namespace InsuranceRestSerwer.Controllers
 
             return Ok(client);
         }
+        [Route("api/Exist")]
+        [HttpGet]
+        [ResponseType(typeof(string))]
+        private IHttpActionResult RestClientExists()
+        {
+            return Ok("działa");
+        }
 
         protected override void Dispose(bool disposing)
         {
@@ -115,5 +126,7 @@ namespace InsuranceRestSerwer.Controllers
         {
             return db.Clients.Count(e => e.ClientId == id) > 0;
         }
+
+        
     }
 }
