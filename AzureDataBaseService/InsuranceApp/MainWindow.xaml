@@ -7,12 +7,25 @@
         xmlns:viewmodels="clr-namespace:InsuranceApp.ViewModels"
         xmlns:view="clr-namespace:InsuranceApp.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" MaxHeight="500" MinHeight="500" MaxWidth="800" MinWidth="800">
 
     <Window.Resources>
         <DataTemplate x:Name="AddClientTemplate" DataType="{x:Type viewmodels:AddingClientViewModel}">
             <view:AddingClientView DataContext="{Binding}"/>
         </DataTemplate>
+
+        <DataTemplate x:Name="DisplayClientTemplate" DataType="{x:Type viewmodels:DisplayClientViewModel}">
+            <view:DisplayClientDataView DataContext="{Binding}"/>
+        </DataTemplate>
+
+        <DataTemplate x:Name="DeleteClientTemplate" DataType="{x:Type viewmodels:DeleteClientViewModel}">
+            <view:DeleteClientView DataContext="{Binding}"/>
+        </DataTemplate>
+
+        <DataTemplate x:Name="ModifyClientTemplate" DataType="{x:Type viewmodels:ModifyClientViewModel}">
+            <view:ModifyClientView DataContext="{Binding}"/>
+        </DataTemplate>
+
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -32,9 +45,11 @@
 
         <DockPanel Background="Beige" Grid.Row="0" Grid.Column="0" Grid.RowSpan="5">
             <StackPanel>
+                <Button Content="Display client" Click="DisplayClientTab_Clicked"/>
                 <Button Content="Add client" Click="AddNewClientTab_Clicked"/>
-                <Button Content="Delete client"/>
-                <Button Content="Modify client"/>
+                <Button Content="Delete client" Click="Delete_Clicked"/>
+                <Button Content="Modify client" Click="Modify_Click"/>
+                
             </StackPanel>
         </DockPanel>
 

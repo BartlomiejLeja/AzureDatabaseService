@@ -37,5 +37,16 @@ namespace InsuranceApp
         {
             DataContext = new DisplayClientViewModel();
         }
+
+
+        private void Delete_Clicked(object sender, RoutedEventArgs e)
+        {
+            DataContext = new DeleteClientViewModel();
+        }
+
+        private void Modify_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new ModifyClientViewModel();
+        }
     }
 }

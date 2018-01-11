@@ -10,11 +10,15 @@ namespace InsuranceApp
     {
         const string hostName = "https://insurancerestserwer20180104090036.azurewebsites.net";
         RestClient restClient = new RestClient(hostName);
-        public void GetClientdata(int id)
+        public Client GetClient(int id)
         {
             IRestResponse response = restClient.Execute(new RestRequest($"/api/Clients/{id}", Method.GET));
-            var clients = JsonConvert.DeserializeObject<Client>(response.Content);
+            var client = JsonConvert.DeserializeObject<Client>(response.Content);
+
+            return client;
         }
+
+
 
         public void CreateClient(string firstName, string secondName,DateTime? dayOfBirth, int peselNumber)
         {
@@ -46,7 +50,12 @@ namespace InsuranceApp
             var request = new RestRequest("api/Clients", Method.DELETE);
             restClient.Execute(request);
         }
+        public void ModifyClient(int id)
+        {
 
+         //   var request = new RestRequest("api/Clients", Method.DELETE);
+         //   restClient.Execute(request);
+        }
 
         public List<Client> GetAllClientdata()
         {

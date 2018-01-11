@@ -97,12 +97,20 @@
     <Compile Include="Models\TravelInsurances\TravelInsurance.cs" />
     <Compile Include="RestSharpHandler.cs" />
     <Compile Include="ViewModels\AddingClientViewModel.cs" />
+    <Compile Include="ViewModels\DeleteClientViewModel.cs" />
     <Compile Include="ViewModels\DisplayClientViewModel.cs" />
+    <Compile Include="ViewModels\ModifyClientViewModel.cs" />
     <Compile Include="View\AddingClientView.xaml.cs">
       <DependentUpon>AddingClientView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\DeleteClientView.xaml.cs">
+      <DependentUpon>DeleteClientView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DisplayClientDataView.xaml.cs">
       <DependentUpon>DisplayClientDataView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ModifyClientView.xaml.cs">
+      <DependentUpon>ModifyClientView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -120,7 +128,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\DeleteClientView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\DisplayClientDataView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ModifyClientView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

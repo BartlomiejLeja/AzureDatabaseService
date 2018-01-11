@@ -22,10 +22,36 @@ namespace InsuranceApp.View
     /// </summary>
     public partial class DisplayClientDataView : UserControl
     {
+        List<Client> items = new List<Client>();
+
         public DisplayClientDataView()
         {
             InitializeComponent();
-            testList();
+            displayClients();
+          //  testList();
+        }
+
+        private void displayClients()
+        {
+            RestSharpHandler handler = new RestSharpHandler();
+            Client tempClient = new Client();
+
+            for(int i =32; i< 35; i++)
+            {
+                tempClient = handler.GetClient(i);
+                
+                
+                if(tempClient != null)
+                {
+                    items.Add(tempClient);
+                }
+
+            }
+            clientsList.ItemsSource = items;
+
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(clientsList.ItemsSource);
+            view.SortDescriptions.Add(new System.ComponentModel.SortDescription("SecondName", ListSortDirection.Ascending));
+
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -37,22 +63,31 @@ namespace InsuranceApp.View
 
 
 
-            RestData.Document.Blocks.Clear();
-            RestData.Document.Blocks.Add(new Paragraph(new Run("Imię: " + tempClient.FirstName +
-                "\nNazwisko: " + tempClient.SecondName +
-                "\nData urodzenia: " + tempClient.ClientData.BirthDate +
-                "\nAdres: " + tempClient.ClientData.Adress +
-                "\nPesel: " + tempClient.ClientData.PeselNumber)));
+
+            if (tempClient.ClientData == null)
+            {
+                RestData.Document.Blocks.Clear();
+                RestData.Document.Blocks.Add(new Paragraph(new Run("No data to display.")));
+            }
+
+            else
+            {
+                RestData.Document.Blocks.Clear();
+                RestData.Document.Blocks.Add(new Paragraph(new Run("Imię: " + tempClient.FirstName +
+                    "\nNazwisko: " + tempClient.SecondName +
+                    "\nData urodzenia: " + tempClient.ClientData.BirthDate +
+                    "\nAdres: " + tempClient.ClientData.Adress +
+                    "\nPesel: " + tempClient.ClientData.PeselNumber)));
 
 
 
-            RestData.Document.Blocks.Add(new Paragraph(new Run("Zniżka: " + tempClient.Discount.ValueOfDiscount + "%")));
-
+                RestData.Document.Blocks.Add(new Paragraph(new Run("Zniżka: " + tempClient.Discount.ValueOfDiscount + "%")));
+            }
 
             String insurance = "";
 
-            foreach (RealEstateInsurance r in tempClient.Insurances.RealEstateInsurance)
-                insurance += r.ToString();
+            //foreach (RealEstateInsurance r in tempClient.Insurances.RealEstateInsurance)
+            //    insurance += r.ToString();
 
 
 
@@ -98,7 +133,7 @@ namespace InsuranceApp.View
             client.Insurances.RealEstateInsurance.Add(exampleInsurance);
 
 
-            List<Client> items = new List<Client>();
+          
             items.Add(new Client() { FirstName = "John Doe", SecondName = "Kowalski", ClientData = exampleClientData, Discount = exampleDiscount });
             items.Add(new Client() { FirstName = "Bartłomiej", SecondName = "Leja", ClientData = exampleClientData, Discount = exampleDiscount });
             items.Add(new Client() { FirstName = "Magdalena", SecondName = "Migas", ClientData = exampleClientData, Discount = exampleDiscount });
