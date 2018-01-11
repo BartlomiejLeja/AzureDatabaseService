@@ -19,21 +19,29 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
-           
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Column="0" Grid.Row="1">
+        <StackPanel Grid.Column="0" Grid.Row="0">
             <Label Content="Insert first name"></Label>
             <TextBox Name="FirstName"  />
-            <Label Content="Insert second name"></Label>
-            <TextBox Name="SecondName"  />
-
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="1">
-          
+            <Label Content="Insert second name"></Label>
+            <TextBox Name="SecondName"  />
         </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="2">
+            <Label Content="Insert pesel number"></Label>
+            <TextBox Name="PeselNumber"  />
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="3">
+            <Label Content="Insert birth date"></Label>
+            <DatePicker Name="BirthDate"/>
+        </StackPanel>
+       
+
 
         <Button Content="Add client" Grid.Column="4" Grid.Row="4" Click="Button_Click"/>
     </Grid>

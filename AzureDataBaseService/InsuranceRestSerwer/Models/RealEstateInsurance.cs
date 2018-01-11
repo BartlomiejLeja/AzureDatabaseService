@@ -17,7 +17,7 @@ namespace InsuranceRestSerwer.Models
         public string PropertyType { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime FinishDate { get; set; }
-        public int Insurance { get; set; }
+        public int InsurancesId { get; set; }
         public Insurances Insurances { get; set; }
     }
 }

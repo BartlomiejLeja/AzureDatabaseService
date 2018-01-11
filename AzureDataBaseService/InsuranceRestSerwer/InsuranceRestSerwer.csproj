@@ -120,6 +120,46 @@
     <Compile Include="Migrations\Insurance\201801032144064_Change for virtual.Designer.cs">
       <DependentUpon>201801032144064_Change for virtual.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Insurance\201801081952147_Added OnModelCreating.cs" />
+    <Compile Include="Migrations\Insurance\201801081952147_Added OnModelCreating.Designer.cs">
+      <DependentUpon>201801081952147_Added OnModelCreating.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Insurance\201801082004003_WhyClientDataDosentWork.cs" />
+    <Compile Include="Migrations\Insurance\201801082004003_WhyClientDataDosentWork.Designer.cs">
+      <DependentUpon>201801082004003_WhyClientDataDosentWork.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Insurance\201801082008246_NoClientData.cs" />
+    <Compile Include="Migrations\Insurance\201801082008246_NoClientData.Designer.cs">
+      <DependentUpon>201801082008246_NoClientData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Insurance\201801082019128_InitialCreate1.cs" />
+    <Compile Include="Migrations\Insurance\201801082019128_InitialCreate1.Designer.cs">
+      <DependentUpon>201801082019128_InitialCreate1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Insurance\201801082156421_IIt should works.cs" />
+    <Compile Include="Migrations\Insurance\201801082156421_IIt should works.Designer.cs">
+      <DependentUpon>201801082156421_IIt should works.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Insurance\201801091019193_AddedConstruktor.cs" />
+    <Compile Include="Migrations\Insurance\201801091019193_AddedConstruktor.Designer.cs">
+      <DependentUpon>201801091019193_AddedConstruktor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Insurance\201801102030341_CascadeDelete.cs" />
+    <Compile Include="Migrations\Insurance\201801102030341_CascadeDelete.Designer.cs">
+      <DependentUpon>201801102030341_CascadeDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Insurance\201801102032502_CascadeDelete2.cs" />
+    <Compile Include="Migrations\Insurance\201801102032502_CascadeDelete2.Designer.cs">
+      <DependentUpon>201801102032502_CascadeDelete2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Insurance\201801102040487_CascadeDelete3.cs" />
+    <Compile Include="Migrations\Insurance\201801102040487_CascadeDelete3.Designer.cs">
+      <DependentUpon>201801102040487_CascadeDelete3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Insurance\201801102103404_backtoErlierversion.cs" />
+    <Compile Include="Migrations\Insurance\201801102103404_backtoErlierversion.Designer.cs">
+      <DependentUpon>201801102103404_backtoErlierversion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Insurance\Configuration.cs" />
     <Compile Include="Models\CarInsurances\CarInsurance.cs" />
     <Compile Include="Models\CarInsurances\CarInsuranceApplication.cs" />
@@ -156,6 +196,36 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Insurance\201801032144064_Change for virtual.resx">
       <DependentUpon>201801032144064_Change for virtual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Insurance\201801081952147_Added OnModelCreating.resx">
+      <DependentUpon>201801081952147_Added OnModelCreating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Insurance\201801082004003_WhyClientDataDosentWork.resx">
+      <DependentUpon>201801082004003_WhyClientDataDosentWork.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Insurance\201801082008246_NoClientData.resx">
+      <DependentUpon>201801082008246_NoClientData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Insurance\201801082019128_InitialCreate1.resx">
+      <DependentUpon>201801082019128_InitialCreate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Insurance\201801082156421_IIt should works.resx">
+      <DependentUpon>201801082156421_IIt should works.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Insurance\201801091019193_AddedConstruktor.resx">
+      <DependentUpon>201801091019193_AddedConstruktor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Insurance\201801102030341_CascadeDelete.resx">
+      <DependentUpon>201801102030341_CascadeDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Insurance\201801102032502_CascadeDelete2.resx">
+      <DependentUpon>201801102032502_CascadeDelete2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Insurance\201801102040487_CascadeDelete3.resx">
+      <DependentUpon>201801102040487_CascadeDelete3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Insurance\201801102103404_backtoErlierversion.resx">
+      <DependentUpon>201801102103404_backtoErlierversion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
