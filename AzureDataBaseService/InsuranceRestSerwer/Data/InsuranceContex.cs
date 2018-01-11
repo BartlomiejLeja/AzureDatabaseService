@@ -16,7 +16,7 @@ namespace InsuranceRestSerwer.Data
 
         public DbSet<Insurances> Insurances { get; set; }
         public DbSet<Client> Clients { get; set; }
-        public DbSet<ClientData> ClientDatas { get; set; }
+         public DbSet<ClientData> ClientDatas { get; set; }
         public DbSet<CarInsurance> CarInsurance { get; set; }
         public DbSet<CarInsuranceApplication> CarInsuranceApplication { get; set; }
         public DbSet<RealEstateInsurance> RealEstateInsurance { get; set; }
@@ -29,5 +29,23 @@ namespace InsuranceRestSerwer.Data
         public DbSet<Region> Region { get; set; }
         public DbSet<Discount> Discount { get; set; }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Client>()
+                .HasOptional(s => s.ClientData)
+                .WithRequired(ad => ad.Client);
+
+            modelBuilder.Entity<RealEstateInsurance>()
+                .HasRequired<Insurances>(s => s.Insurances)
+                .WithMany(g => g.RealEstateInsurance)
+                .HasForeignKey<int>(s => s.InsurancesId);
+
+            //modelBuilder.Entity<Insurances>().
+            //    HasMany<RealEstateInsurance>(g => g.RealEstateInsurance)
+            //    .WithRequired(s => s.Insurances)
+            //    .WillCascadeOnDelete();
+        }
+
     }
-}
+
+    }
