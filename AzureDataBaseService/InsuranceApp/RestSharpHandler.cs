@@ -90,12 +90,7 @@ namespace InsuranceApp
             request.AddBody(clientToModify);
             restClient.Execute(request);
         }
-        public void ModifyClient(int id)
-        {
 
-         //   var request = new RestRequest("api/Clients", Method.DELETE);
-         //   restClient.Execute(request);
-        }
 
         public List<Client> GetAllClientdata()
         {

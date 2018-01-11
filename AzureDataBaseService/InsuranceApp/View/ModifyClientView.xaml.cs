@@ -1,25 +1,13 @@
 ﻿using InsuranceApp.Models;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace InsuranceApp.View
 {
-    /// <summary>
-    /// Logika interakcji dla klasy ModifyClientView.xaml
-    /// </summary>
+
     public partial class ModifyClientView : UserControl
     {
         public ModifyClientView()
@@ -33,11 +21,9 @@ namespace InsuranceApp.View
         {
             RestSharpHandler handler = new RestSharpHandler();
 
-
-
             if (ModifyFirstName.Text != "" && ModifySecondName.Text != "" && ModifyBirthDate.SelectedDate != null && ModifyPeselNumber.Text != "")
             {
-                handler.ModifyClient(int.Parse(IDToModify.Text));
+                handler.ModifyClient(int.Parse(IDToModify.Text), new Client() { FirstName = ModifyFirstName.Text, SecondName = ModifySecondName.Text, ClientData = null });
 
                 items.Clear();
                 displayClients();
@@ -53,7 +39,7 @@ namespace InsuranceApp.View
             RestSharpHandler handler = new RestSharpHandler();
             Client tempClient = new Client();
 
-            for (int i = 32; i < 35; i++)
+            for (int i = 32; i < 60; i++)
             {
                 tempClient = handler.GetClient(i);
 

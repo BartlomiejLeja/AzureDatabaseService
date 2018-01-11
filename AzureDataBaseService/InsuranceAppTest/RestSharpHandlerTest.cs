@@ -16,7 +16,7 @@ namespace InsuranceAppTest
             var firstName = "Magda";
             RestSarpHandler.CreateClient(firstName, "Migas", DateTime.Now, 93,200);
 
-            var client = RestSarpHandler.GetClientdata(200);
+            var client = RestSarpHandler.GetClient(200);
 
             Assert.AreEqual(firstName, client.FirstName);
         }
@@ -27,7 +27,7 @@ namespace InsuranceAppTest
         {
             RestSarpHandler.RemoveClient(200);
 
-            var client = RestSarpHandler.GetClientdata(200);
+            var client = RestSarpHandler.GetClient(200);
 
             Assert.AreEqual(client, null);
         }
@@ -42,7 +42,7 @@ namespace InsuranceAppTest
             };
             RestSarpHandler.ModifyClient(200, testClient);
 
-            var client = RestSarpHandler.GetClientdata(200);
+            var client = RestSarpHandler.GetClient(200);
 
             Assert.AreEqual("Bartek", client.FirstName);
         }

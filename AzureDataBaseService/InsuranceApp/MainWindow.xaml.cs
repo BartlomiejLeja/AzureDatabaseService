@@ -18,9 +18,7 @@ using System.ComponentModel;
 
 namespace InsuranceApp
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -37,8 +35,7 @@ namespace InsuranceApp
         {
             DataContext = new DisplayClientViewModel();
         }
-
-
+        
         private void Delete_Clicked(object sender, RoutedEventArgs e)
         {
             DataContext = new DeleteClientViewModel();
